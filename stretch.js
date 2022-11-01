@@ -93,6 +93,17 @@ function UlkelerinKazanmaSayilari(gelen_finalist_taglar,gelen_data) {
 }
 console.log(UlkelerinKazanmaSayilari(finalist_taglar,data));
 
+function max_bul(dizi){
+    let max=0;
+    let tut;
+    for(let i=0;i<dizi.length;i++){
+        if(dizi[i]["gol_sayisi"]>max){
+            max=dizi[i]["gol_sayisi"];
+            tut=i;
+        }
+    }
+    return tut;
+}
 
 function EnCokGolAtan(gelen_finalist_taglar,gelen_data) {
     let dizi=[]
@@ -116,14 +127,7 @@ function EnCokGolAtan(gelen_finalist_taglar,gelen_data) {
         };
         dizi.push(obje);
     });
-    let max=0;
-    let tut;
-    for(let i=0;i<dizi.length;i++){
-        if(dizi[i]["gol_sayisi"]>max){
-            max=dizi[i]["gol_sayisi"];
-            tut=i;
-        }
-    }
+    tut=max_bul(dizi);
     return dizi[tut];
 
 }
@@ -147,18 +151,11 @@ function EnKotuDefans(gelen_finalist_taglar,gelen_data) {
         });
         const obje={
             "ulke":ulke,
-            "yenen_gol_sayisi":gol_sayac
+            "gol_sayisi":gol_sayac
         };
         dizi.push(obje);
     });
-    let max=0;
-    let tut;
-    for(let i=0;i<dizi.length;i++){
-        if(dizi[i]["yenen_gol_sayisi"]>max){
-            max=dizi[i]["yenen_gol_sayisi"];
-            tut=i;
-        }
-    }
+    tut = max_bul(dizi);
     return dizi[tut];	
 }
 console.log(EnKotuDefans(finalist_taglar,data));
