@@ -1,7 +1,5 @@
 const { fifaData } = require('./fifa.js')
 
-//Onceki Fonklar yokmuş gibi davrandım
-
 function ulke_taglar(fifa_data){
     let ulke_taglar_dizi=[]
     for (let i=0 ; i<fifa_data.length; i++){
@@ -59,9 +57,3 @@ function UlkelerinKazanmaSayilari(ulke_kısaltmalar,fifa_data) {
     return str_dizi
 }
 console.log(UlkelerinKazanmaSayilari(ulke_kısaltmalar,fifaData));
-
-function EnCokGolAtan() {
-	const finaller = fifa_data.filter(mac =>  mac["Stage"]=="Final");
-    
-    
-}
